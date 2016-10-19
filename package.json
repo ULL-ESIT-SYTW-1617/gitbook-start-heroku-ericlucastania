@@ -1,0 +1,47 @@
+{
+  "name": "gitbook-start-plugin-heroku-ericlucastania",
+  "version": "1.0.5",
+  "description": "Plugin que permite hacer un despliegue automático de un gitbook en heroku",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "chachi": "./script.js"
+  },
+  "author": {
+    "name": "Eric Ramos Suárez, Lucas Ruiz González, Tania González Rodríguez"
+  },
+  "license": "ISC",
+  "_id": "gitbook-start-plugin-heroku-ericlucastania@1.0.3",
+  "_shasum": "f6986aeab7f7c3dc929efc669d9a49f51c960e15",
+  "_from": "gitbook-start-plugin-heroku-ericlucastania@latest",
+  "_npmVersion": "2.15.9",
+  "_nodeVersion": "4.5.0",
+  "_npmUser": {
+    "name": "tania77",
+    "email": "ainatrg@gmail.com"
+  },
+  "dist": {
+    "shasum": "f6986aeab7f7c3dc929efc669d9a49f51c960e15",
+    "tarball": "https://registry.npmjs.org/gitbook-start-plugin-heroku-ericlucastania/-/gitbook-start-plugin-heroku-ericlucastania-1.0.3.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "alu0100786330",
+      "email": "alu0100786330@ull.edu.es"
+    },
+    {
+      "name": "joselucas",
+      "email": "alu0100785265@ull.edu.es"
+    },
+    {
+      "name": "tania77",
+      "email": "ainatrg@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/gitbook-start-plugin-heroku-ericlucastania-1.0.3.tgz_1476822151040_0.11148920259438455"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/gitbook-start-plugin-heroku-ericlucastania/-/gitbook-start-plugin-heroku-ericlucastania-1.0.3.tgz"
+}
