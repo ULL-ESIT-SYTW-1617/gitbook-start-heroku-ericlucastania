@@ -4,7 +4,7 @@ module.exports = {
     
     initialize: () => {
         
-        console.log("HOLAAAA");
+
     },
     
     deploy: () => {
