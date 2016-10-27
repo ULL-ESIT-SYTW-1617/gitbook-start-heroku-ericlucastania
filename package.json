@@ -24,6 +24,9 @@
     "shasum": "f6986aeab7f7c3dc929efc669d9a49f51c960e15",
     "tarball": "https://registry.npmjs.org/gitbook-start-plugin-heroku-ericlucastania/-/gitbook-start-plugin-heroku-ericlucastania-1.0.3.tgz"
   },
+  "heroku":{
+    "repo": "https://probandoappi.herokuapp.com/"
+  },
   "maintainers": [
     {
       "name": "alu0100786330",
