@@ -9,7 +9,7 @@ module.exports = {
     
     deploy: () => {
         var pck = require("./package.json");
-        var exec = require("child_process").exec;
+        var exec = require("child_process").execSync;
         exec("git remote remove heroku;git remote add heroku " + pck.heroku.repo,(error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`);
