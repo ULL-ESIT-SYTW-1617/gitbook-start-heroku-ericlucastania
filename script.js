@@ -18,7 +18,7 @@ module.exports = {
           console.log(`stdout: ${stdout}`);
           console.log(`stderr: ${stderr}`);
         });
-        exec("git commit -am \"desplegando en heroku\";git push heroku master",(error, stdout, stderr) => {
+        exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master",(error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`);
             return;
