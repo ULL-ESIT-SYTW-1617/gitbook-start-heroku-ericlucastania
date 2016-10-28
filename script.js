@@ -32,8 +32,9 @@ module.exports = {
     deploy: () => {
          var pck = require("./package.json");
          require('shelljs/global');
-         exec("git remote add heroku ");
-         exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master")
+         exec(process.cwd() + '/' + "echo web: node  app.js > Procfile ");
+         exec("git remote add heroku " + pck.heroku.repo);
+         exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master");
     }
     
 };
