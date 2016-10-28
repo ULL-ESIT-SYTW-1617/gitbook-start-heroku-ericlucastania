@@ -3,11 +3,14 @@
 module.exports = {
     
     initialize: () => {
-        var direct = process.cwd() + '/';
+        
+        var fs = require('fs-extra');
         var path = require('path');
+        
+        var direct = process.cwd() + '/';
         var reg =/deploy-heroku/gi;
         var ruta = path.join(__dirname,'gulpfile.js');
-        var fs = require('fs-extra');
+        
       
       
         
