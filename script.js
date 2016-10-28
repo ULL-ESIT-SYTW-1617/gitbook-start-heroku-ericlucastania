@@ -5,7 +5,7 @@ module.exports = {
     initialize: () => {
         var direct = process.cwd() + '/';
         var path = require('path');
-        var reg =/deploy-iaas/gi;
+        var reg =/deploy-heroku/gi;
         var ruta = path.join(__dirname,'gulpfile.js');
         var fs = require('fs-extra');
       
