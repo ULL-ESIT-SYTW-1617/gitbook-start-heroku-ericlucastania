@@ -1,7 +1,6 @@
-var gulp = require('gulp');
-var shell = require('gulp-shell');
 
-gulp.task('deploy', shell.task([
-    'git push heroku master'
-]));
-    
+
+gulp.task('deploy-heroku',function(){
+  var iaas = require ("gitbook-start-plugin-heroku-ericlucastania");
+  iaas.deploy();
+});
