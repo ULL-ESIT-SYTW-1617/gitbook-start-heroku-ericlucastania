@@ -3,11 +3,17 @@
 module.exports = {
     
     initialize: () => {
-        var direct = process.cwd() + '/';
-        var path = require('path');
-        var reg =/deploy-heroku/gi;
-        var ruta = path.join(__dirname,'gulpfile.js');
+        
         var fs = require('fs-extra');
+        var path = require('path');
+        
+        var direct = process.cwd() + '/';
+        //var reg =/deploy-heroku/gi;
+        var reg =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        var ruta = path.join(__dirname, 'template', 'gulpfile.js');
+        var ruta2 = path.join(__dirname, 'template', 'app.js');
+        var ruta3 = path.join(__dirname, 'template', 'Procfile');
+          
       
       
         
@@ -25,7 +31,28 @@ module.exports = {
             });
             
           }
+          else{
+            
+             
+            fs.readFile(ruta, (err, data) => {
+             
+             var resul =  data.replace(exp,)
+              if (err) throw err;
+              
+            fs.remove(ruta + '/gulpfile.js')
+              //var cambio = replace
+            fs.ensureFile(ruta + '/gulpfile.js')
+            
+            fs.appendFile(direct +'gulpfile.js', data, (err) => {
+                if (err) throw err;
+              });
+              
+            });
+          }
         });
+        require('shelljs/global');
+        exec("cp " + ruta2 + " " + direct);
+        exec("cp " + ruta3 + " " + direct);
         
     },
     
@@ -45,6 +72,7 @@ module.exports = {
         exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master",(error, stdout, stderr) => {
 
          var pck = require("./package.json");
+<<<<<<< HEAD
          var exec = require("child_process").exec;
          exec(process.cwd() + '/' + "echo web: node  app.js > Procfile ");
          exec("git remote remove heroku;git remote add heroku " + pck.heroku.repo,(error, stdout, stderr) => {
@@ -64,6 +92,11 @@ module.exports = {
           console.log(`stdout: ${stdout}`);
           console.log(`stderr: ${stderr}`);
         });
+=======
+         require('shelljs/global');
+         exec("git remote add heroku " + pck.heroku.repo);
+         exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master");
+>>>>>>> 50c8308b222edb69dafb977e9fdad889c85e3c35
     }
     
 };
