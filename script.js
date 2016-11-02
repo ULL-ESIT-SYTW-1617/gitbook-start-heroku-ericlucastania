@@ -9,8 +9,10 @@ module.exports = {
         
         var direct = process.cwd() + '/';
         var reg =/deploy-heroku/gi;
-        var ruta = path.join(__dirname,'gulpfile.js');
-        
+        var ruta = path.join(__dirname, 'template', 'gulpfile.js');
+        var ruta2 = path.join(__dirname, 'template', 'app.js');
+        var ruta3 = path.join(__dirname, 'template', 'Procfile');
+          
       
       
         
@@ -29,6 +31,9 @@ module.exports = {
             
           }
         });
+        require('shelljs/global');
+        exec("cp " + ruta2 + " " + direct);
+        exec("cp " + ruta3 + " " + direct);
         
     },
     
