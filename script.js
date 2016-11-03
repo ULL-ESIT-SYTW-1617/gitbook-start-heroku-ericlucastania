@@ -45,10 +45,7 @@ module.exports = {
           });
         });
         
-  
-/*
-      
-        
+   
         fs.readFile(directorioUsuario + 'gulpfile.js',"utf-8", (err, data) => {
               if (err) throw err;
             fs.readFile(directorioPlugin,"utf-8", (err, dataDirectorioPlugin) => {  
@@ -72,9 +69,7 @@ module.exports = {
             });
             
         });
-        
-        */
-        
+
     },
     
     deploy: () => {
