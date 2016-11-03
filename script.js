@@ -10,7 +10,7 @@ module.exports = {
         var readlineSync = require('readline-sync');
         
         var directorioUsuario = process.cwd() + '/';
-        var exp =/\n\ngulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        var exp =/\n\ngulp.task\(\'deploy\-heroku(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
         
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
@@ -59,9 +59,7 @@ module.exports = {
                   fs.appendFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
               }
               else{
-                  console.log("original " + data);
                   var dataModificado = data.replace(exp,dataDirectorioPlugin);
-                  console.log(dataModificado)
                   fs.writeFile(directorioUsuario + 'gulpfile.js', dataModificado);
               }
             });
