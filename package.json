@@ -5,7 +5,11 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "chachi": "./script.js"
+    "script": "./script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-heroku-ericlucastania.git"
   },
   "author": {
     "name": "Eric Ramos Suárez, Lucas Ruiz González, Tania González Rodríguez"
