@@ -8,12 +8,12 @@ module.exports = {
         require('shelljs/global');
         var path = require('path');
         
-        var direct = process.cwd() + '/';
-        var exp =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        var directorioUsuario = process.cwd() + '/';
+        var exp =/\n\ngulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
         
         
-        var ruta = path.join(__dirname, 'template', 'gulpfile.js');
-        var ruta2 = path.join(__dirname, 'template');
+        var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
+        var directorioPlugin2 = path.join(__dirname, 'template');
           
           
         var name;
@@ -38,22 +38,26 @@ module.exports = {
 
       
         
-        fs.readFile(direct + 'gulpfile.js',"utf-8", (err, data) => {
-          if (err) throw err;
-          if(data.match(exp) != null){
-              data.replace(exp,ruta);
-              fs.writeFile(direct + 'gulpfile.js', data);
-          }
-          
-        
+        fs.readFile(directorioUsuario + 'gulpfile.js',"utf-8", (err, data) => {
+              if (err) throw err;
+            fs.readFile(directorioPlugin,"utf-8", (err, dataDirectorioPlugin) => {  
+              if(data.match(exp) == null){
+                  if(err) throw err;
+                  fs.writeFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
+              }
+              else{
+                  var dataModificado = data.replace(exp,dataDirectorioPlugin);
+                  fs.writeFile(directorioUsuario + 'gulpfile.js', dataModificado);
+              }
+            });
         });
         
         // Perfect  
-        fs.readdir(ruta2, (err, files) => {
-            var pos =files.indexOf("gulpfile.js");
+        fs.readdir(directorioPlugin2, (err, files) => {
+            var pos = files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
-                cp (ruta2 + '/' + archivo, direct); 
+                cp (directorioPlugin2 + '/' + archivo, directorioUsuario); 
             });
             
         });
