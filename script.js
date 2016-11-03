@@ -17,6 +17,8 @@ module.exports = {
           
           
         var name;
+        
+        /*
         console.log("Pon tu nombre:");
 
         process.stdin.on('readable', function() {
@@ -29,7 +31,7 @@ module.exports = {
                    
         });
          exec("heroku create " + name );
-         exec('heroku auth:login');
+         exec('heroku auth:login');*/
          
         
        
@@ -38,13 +40,15 @@ module.exports = {
         
         fs.readFile(direct + 'gulpfile.js',"utf-8", (err, data) => {
           if (err) throw err;
-
-          data.replace(exp,ruta);
-          fs.writeFile(direct + 'gulpfile.js', data);
+          if(data.match(exp) != null){
+              data.replace(exp,ruta);
+              fs.writeFile(direct + 'gulpfile.js', data);
+          }
+          
         
         });
         
-        
+        // Perfect  
         fs.readdir(ruta2, (err, files) => {
             var pos =files.indexOf("gulpfile.js");
             files.splice(pos,1);
@@ -54,14 +58,15 @@ module.exports = {
             
         });
         
+        
+        
     },
     
     deploy: () => {
 
-         var pck = require("./package.json");
          require('shelljs/global');
          
-         exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master");
+         exec("git push heroku master");
     }
     
 };
