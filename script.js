@@ -9,7 +9,7 @@ module.exports = {
         var path = require('path');
         
         var direct = process.cwd() + '/';
-        var reg =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        var exp =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
         
         
         var ruta = path.join(__dirname, 'template', 'gulpfile.js');
