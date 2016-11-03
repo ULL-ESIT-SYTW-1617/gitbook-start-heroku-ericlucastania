@@ -59,7 +59,9 @@ module.exports = {
                   fs.writeFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
               }
               else{
+                  console.log("original " + data);
                   var dataModificado = data.replace(exp,dataDirectorioPlugin);
+                  console.log(dataModificado)
                   fs.writeFile(directorioUsuario + 'gulpfile.js', dataModificado);
               }
             });
@@ -80,7 +82,8 @@ module.exports = {
     deploy: () => {
 
          require('shelljs/global');
-         
+         exec('git add .');
+         exec('git commit -m "deploying heroku"');
          exec("git push heroku master");
     }
     
