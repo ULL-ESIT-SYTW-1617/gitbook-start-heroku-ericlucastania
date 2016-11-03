@@ -30,7 +30,7 @@ module.exports = {
         }
         
         login();
-        var nombre;
+        /*var nombre;
         process.stdin.setEncoding('utf8');
         process.stdin.on('readable', () => {
           nombre = process.stdin.read();
@@ -39,7 +39,7 @@ module.exports = {
             process.exit();
           }
         });
-        exec("heroku create " + nombre);
+        exec("heroku create " + nombre);*/
         
         
        
