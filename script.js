@@ -5,11 +5,13 @@ module.exports = {
     initialize: () => {
         
         var fs = require('fs-extra');
+        require('shelljs/global');
         var path = require('path');
         
         var direct = process.cwd() + '/';
-        //var reg =/deploy-heroku/gi;
         var reg =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        
+        
         var ruta = path.join(__dirname, 'template', 'gulpfile.js');
         var ruta2 = path.join(__dirname, 'template', 'app.js');
         var ruta3 = path.join(__dirname, 'template', 'Procfile');
@@ -19,38 +21,14 @@ module.exports = {
         
         fs.readFile(direct + 'gulpfile.js',"utf-8", (err, data) => {
           if (err) throw err;
-          if(data.match(reg) == null){
-            
-            fs.readFile(ruta, (err, data) => {
-              if (err) throw err;
-              
-              fs.appendFile(direct +'gulpfile.js', data, (err) => {
-                if (err) throw err;
-              });
-              
-            });
-            
-          }
-          else{
-            
-             
-            fs.readFile(ruta, (err, data) => {
-             
-             var resul =  data.replace(exp,)
-              if (err) throw err;
-              
-            fs.remove(ruta + '/gulpfile.js')
-              //var cambio = replace
-            fs.ensureFile(ruta + '/gulpfile.js')
-            
-            fs.appendFile(direct +'gulpfile.js', data, (err) => {
-                if (err) throw err;
-              });
-              
-            });
-          }
+
+          data.replace(exp,ruta);
+          fs.writeFile(direct + 'gulpfile.js', data);
+        
         });
-        require('shelljs/global');
+        
+        
+        
         exec("cp " + ruta2 + " " + direct);
         exec("cp " + ruta3 + " " + direct);
         
