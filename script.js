@@ -7,6 +7,7 @@ module.exports = {
         var fs = require('fs-extra');
         require('shelljs/global');
         var path = require('path');
+        var readlineSync = require('readline-sync');
         
         var directorioUsuario = process.cwd() + '/';
         var exp =/\n\ngulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
@@ -14,50 +15,37 @@ module.exports = {
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
-        var nombre;
+        var userName;
           
                 
-        function login(){
-            new Promise((resolve, reject) => {
-              const spawn = require('child_process').spawn;
-              spawn('heroku', ['login'], {stdio: 'inherit'}
-                .on('close', function (e) {
-                  if (e === 0) resolve();
-                  else reject(new Error('Authorization failed.'));
-                }));
-          }); 
+        function login () {
+          const spawn = require('child_process').spawn
+          return new Promise(function (resolve, reject) {
+            spawn('heroku', ['login'], {stdio: 'inherit'})
+              .on('close', function (e) {
+                if (e === 0) resolve()
+                else reject(new Error('Authorization failed.'))
+              })
+          })
         }
-              
         
-        
-        function resolverNombre (){
-             new Promise((resolve, reject) => {
-                process.stdin.setEncoding('utf8');
-                process.stdin.on('readable', () => {
-                  nombre = process.stdin.read();
-                  if (nombre !== null) {
-                    resolve(nombre);
-                  }
-                  
-            });
+        function resolverNombre(){
+          return new Promise(function (resolve, reject) {
+             
+              var nombre = readlineSync.question('Introduzca el nombre de la aplicación: ');
+              if(nombre !== null)
+                resolve (nombre);
           });
         }
         
         
-        login().then(function(value){
-          resolverNombre().then(function(res){
+        login().then(function(res){
+          resolverNombre().then(function(nombre){
             exec("heroku create " + nombre);
           });
         });
         
-        
-        
-        
-          
-        
-        
-        
-       
+  
 /*
       
         
