@@ -28,7 +28,6 @@ module.exports = {
             }
                    
         });
-         exec("git remote add heroku " + pck.heroku.repo);
          exec("heroku create " + name );
          exec('heroku auth:login');
          
