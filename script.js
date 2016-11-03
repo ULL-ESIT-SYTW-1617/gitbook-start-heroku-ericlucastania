@@ -16,7 +16,14 @@ module.exports = {
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
           
-                
+        
+        function descarga(){
+          return new Promise(function (resolve, reject) {
+             
+             resolve(exec('npm install --save gitbook-start-plugin-heroku-ericlucastania'));
+          });
+        }
+        
         function login () {
           const spawn = require('child_process').spawn;
           return new Promise(function (resolve, reject) {
@@ -43,12 +50,14 @@ module.exports = {
           });
         }
         
+        descarga().then(function(res){
+            login().then(function(res){
+              resolverNombre().then(function(nombre){
+                exec("heroku create " + nombre);
+              });
+            });
+        })
         
-        login().then(function(res){
-          resolverNombre().then(function(nombre){
-            exec("heroku create " + nombre);
-          });
-        });
         
    
         fs.readFile(directorioUsuario + 'gulpfile.js',"utf-8", (err, data) => {
