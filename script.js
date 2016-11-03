@@ -32,7 +32,7 @@ module.exports = {
             var pos =files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
-                cp (archivo, direct); 
+                cp (ruta2 + '/' + archivo, direct); 
             });
             
         });
