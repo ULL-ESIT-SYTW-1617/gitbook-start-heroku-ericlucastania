@@ -5,7 +5,6 @@ module.exports = {
     initialize: () => {
         
         var fs = require('fs-extra');
-        var readlineSync = require('readline-sync');
         require('shelljs/global');
         var path = require('path');
         
@@ -15,31 +14,47 @@ module.exports = {
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
-        var userName;
+        var nombre;
           
                 
-        function login () {
-          const spawn = require('child_process').spawn
-          return new Promise(function (resolve, reject) {
-            spawn('heroku', ['login'], {stdio: 'inherit'})
-              .on('close', function (e) {
-                if (e === 0) resolve()
-                else reject(new Error('Authorization failed.'))
-              })
-          })
+        function login(){
+            new Promise((resolve, reject) => {
+              const spawn = require('child_process').spawn;
+              spawn('heroku', ['login'], {stdio: 'inherit'}
+                .on('close', function (e) {
+                  if (e === 0) resolve();
+                  else reject(new Error('Authorization failed.'));
+                }));
+          }); 
+        }
+              
+        
+        
+        function resolverNombre (){
+             new Promise((resolve, reject) => {
+                process.stdin.setEncoding('utf8');
+                process.stdin.on('readable', () => {
+                  nombre = process.stdin.read();
+                  if (nombre !== null) {
+                    resolve(nombre);
+                  }
+                  
+            });
+          });
         }
         
-        login();
-        /*var nombre;
-        process.stdin.setEncoding('utf8');
-        process.stdin.on('readable', () => {
-          nombre = process.stdin.read();
-          if (nombre !== null) {
-            console.log(nombre);
-            process.exit();
-          }
+        
+        login().then(function(value){
+          resolverNombre().then(function(res){
+            exec("heroku create " + nombre);
+          });
         });
-        exec("heroku create " + nombre);*/
+        
+        
+        
+        
+          
+        
         
         
        

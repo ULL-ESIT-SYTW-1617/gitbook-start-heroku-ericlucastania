@@ -47,7 +47,6 @@
   "dependencies": {
     "fs-extra": "^1.0.0",
     "path": "^0.12.7",
-    "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
   }
 }
