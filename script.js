@@ -56,7 +56,7 @@ module.exports = {
             fs.readFile(directorioPlugin,"utf-8", (err, dataDirectorioPlugin) => {  
               if(data.match(exp) == null){
                   if(err) throw err;
-                  fs.writeFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
+                  fs.appendFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
               }
               else{
                   console.log("original " + data);
