@@ -30,6 +30,16 @@ module.exports = {
         }
         
         login();
+        var nombre;
+        process.stdin.setEncoding('utf8');
+        process.stdin.on('readable', () => {
+          nombre = process.stdin.read();
+          if (nombre !== null) {
+            console.log(nombre);
+            process.exit();
+          }
+        });
+        exec("heroku create " + nombre);
         
         
        
