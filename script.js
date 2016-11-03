@@ -5,6 +5,7 @@ module.exports = {
     initialize: () => {
         
         var fs = require('fs-extra');
+        var readlineSync = require('readline-sync');
         require('shelljs/global');
         var path = require('path');
         
@@ -16,41 +17,20 @@ module.exports = {
         var directorioPlugin2 = path.join(__dirname, 'template');
         var userName;
           
+                
+        function login () {
+          const spawn = require('child_process').spawn
+          return new Promise(function (resolve, reject) {
+            spawn('heroku', ['login'], {stdio: 'inherit'})
+              .on('close', function (e) {
+                if (e === 0) resolve()
+                else reject(new Error('Authorization failed.'))
+              })
+          })
+        }
         
+        login();
         
-        var comprobar = new Promise(function (resolve, reject){
-            exec('heroku login',(err, stdout, stderr) => {
-              if (err) {
-                console.error(err);
-                return;
-              }
-              console.log(stdout);
-            });
-            
-            
-            process.stdin.on('readable', (function() {
-                userName = process.stdin.read();
-                if (userName !== null) {
-                    
-                    process.exit();
-                }
-                else{
-                    userName = "hr"; //Cambiar dopo
-                    process.exit();
-                }
-                       
-            })());
-        
-        
-        });
-        comprobar.then(function(value) {
-          console.log(value);
-           exec("heroku create " + userName );
-           exec('heroku auth:token');
-           
-        });
-        
-         
         
        
 /*
