@@ -14,28 +14,46 @@ module.exports = {
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
+        var userName;
           
-          
-        var name;
         
-        /*
-        console.log("Pon tu nombre:");
-
-        process.stdin.on('readable', function() {
-            name = process.stdin.read();
-            if (name !== null) {
-                
         
-                process.exit();
-            }
-                   
+        var comprobar = new Promise(function (resolve, reject){
+            exec('heroku login',(err, stdout, stderr) => {
+              if (err) {
+                console.error(err);
+                return;
+              }
+              console.log(stdout);
+            });
+            
+            
+            process.stdin.on('readable', (function() {
+                userName = process.stdin.read();
+                if (userName !== null) {
+                    
+                    process.exit();
+                }
+                else{
+                    userName = "hr"; //Cambiar dopo
+                    process.exit();
+                }
+                       
+            })());
+        
+        
         });
-         exec("heroku create " + name );
-         exec('heroku auth:login');*/
+        comprobar.then(function(value) {
+          console.log(value);
+           exec("heroku create " + userName );
+           exec('heroku auth:token');
+           
+        });
+        
          
         
        
-
+/*
       
         
         fs.readFile(directorioUsuario + 'gulpfile.js',"utf-8", (err, data) => {
@@ -62,7 +80,7 @@ module.exports = {
             
         });
         
-        
+        */
         
     },
     
