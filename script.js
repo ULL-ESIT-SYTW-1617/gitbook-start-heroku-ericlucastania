@@ -9,14 +9,32 @@ module.exports = {
         var path = require('path');
         
         var direct = process.cwd() + '/';
-        var reg =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
+        var exp =/gulp.task(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
         
         
         var ruta = path.join(__dirname, 'template', 'gulpfile.js');
         var ruta2 = path.join(__dirname, 'template');
-        //var ruta3 = path.join(__dirname, 'template', 'Procfile');
           
-      
+          
+        var name;
+        console.log("Pon tu nombre:");
+
+        process.stdin.on('readable', function() {
+            name = process.stdin.read();
+            if (name !== null) {
+                
+        
+                process.exit();
+            }
+                   
+        });
+         exec("git remote add heroku " + pck.heroku.repo);
+         exec("heroku create " + name );
+         exec('heroku auth:login');
+         
+        
+       
+
       
         
         fs.readFile(direct + 'gulpfile.js',"utf-8", (err, data) => {
@@ -43,7 +61,7 @@ module.exports = {
 
          var pck = require("./package.json");
          require('shelljs/global');
-         exec("git remote add heroku " + pck.heroku.repo);
+         
          exec("git add .;git commit -m \"desplegando en heroku\";git push heroku master");
     }
     
