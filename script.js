@@ -15,18 +15,23 @@ module.exports = {
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
-        var userName;
           
                 
         function login () {
-          const spawn = require('child_process').spawn
+          const spawn = require('child_process').spawn;
           return new Promise(function (resolve, reject) {
-            spawn('heroku', ['login'], {stdio: 'inherit'})
-              .on('close', function (e) {
-                if (e === 0) resolve()
-                else reject(new Error('Authorization failed.'))
-              })
-          })
+            try{
+              spawn('heroku', ['login'], {stdio: 'inherit'})
+                .on('close', function (e) {
+                  if (e === 0) resolve();
+                  else reject(new Error('Authorization failed.'));
+                });
+            }
+            catch(er){
+              console.log("Descarga Toolbets");
+            }
+          });
+          
         }
         
         function resolverNombre(){
@@ -65,7 +70,7 @@ module.exports = {
             var pos = files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
-                cp (directorioPlugin2 + '/' + archivo, directorioUsuario); 
+                cp(directorioPlugin2 + '/' + archivo, directorioUsuario); 
             });
             
         });
