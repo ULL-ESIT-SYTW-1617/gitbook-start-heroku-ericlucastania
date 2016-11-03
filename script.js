@@ -14,7 +14,6 @@ module.exports = {
         
         var ruta = path.join(__dirname, 'template', 'gulpfile.js');
         var ruta2 = path.join(__dirname, 'template');
-        //var ruta3 = path.join(__dirname, 'template', 'Procfile');
           
       
       
@@ -32,7 +31,7 @@ module.exports = {
             var pos =files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
-                cp (archivo, direct); 
+                cp(archivo, direct); 
             });
             
         });
