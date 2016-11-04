@@ -27,16 +27,11 @@ module.exports = {
         function login () {
           const spawn = require('child_process').spawn;
           return new Promise(function (resolve, reject) {
-            try{
               spawn('heroku', ['login'], {stdio: 'inherit'})
                 .on('close', function (e) {
                   if (e === 0) resolve();
                   else reject(new Error('Authorization failed.'));
                 });
-            }
-            catch(er){
-              console.log("Descarga Toolbets");
-            }
           });
           
         }
