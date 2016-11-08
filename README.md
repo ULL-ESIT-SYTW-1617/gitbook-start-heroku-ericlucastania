@@ -45,6 +45,22 @@ ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
 
 
 ```gulp deploy-heroku```
+
+#### Explicación
+
+Cunado se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del plugin,
+el initialize crea una tarea en el gulp para realizar el deploy. Además de guardarte el paquete
+elegido en el package.json.
+
+## Opciones
+
+    gitbook-start [OPTIONS]
+        -d nombre del directorio a crear node gitbook-star -d miDirectorio
+        -a autor del libro a crear node gitbook-star -a AutorDelLibro
+        -e email del autor del libro node gitbook-star -e eric.ramos.suarez@gmail.com
+        -r repositorio github contra el que se va a trabajar -r nameRepo
+        -v muestra la version del paquete gitbook-start -v
+        -h muestra ayuda sobre las opciones disponibles
 ## Enlaces interesantes 
  
 * [NPM](https://www.npmjs.com/package/gitbook-start-elt)
