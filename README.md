@@ -28,7 +28,23 @@ ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
 **3. Ejecuta el binario para el render del template**
 
 ```gitbook-start --dir Carpeta``` !!Si no ejecutas el --dir se creará una carpeta con tu nombre de usuario
+**4. Entra en la carpeta**
 
+ ```cd Carpeta```
+
+**5. Ejecuta el plugin**
+
+```gitbook-start -d heroku``` !! También puedes usar la opción --deploy
+
+**6. Ejecuta un npm install**
+
+```npm install```
+
+
+**7. Ejecuta el gulp creado**
+
+
+```gulp deploy-heroku```
 ## Enlaces interesantes 
  
 * [NPM](https://www.npmjs.com/package/gitbook-start-elt)
