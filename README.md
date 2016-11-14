@@ -28,6 +28,7 @@ ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
 **3. Ejecuta el binario para el render del template**
 
 ```gitbook-start --dir Carpeta``` !!Si no ejecutas el --dir se creará una carpeta con tu nombre de usuario
+
 **4. Entra en la carpeta**
 
  ```cd Carpeta```
@@ -35,6 +36,10 @@ ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
 **5. Ejecuta el plugin**
 
 ```gitbook-start -d heroku``` !! También puedes usar la opción --deploy
+ 
+ Te pedirá que introduzcas el token,puedes usar un token ya existente o si dispones de heroku toolbet puedes usarlo 
+ mediante el comando ```heroku auth:token```
+ 
 
 **6. Ejecuta un npm install**
 
@@ -48,9 +53,24 @@ ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
 
 #### Explicación
 
-Cunado se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del plugin,
+Cuando se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del plugin,
 el initialize crea una tarea en el gulp para realizar el deploy. Además de guardarte el paquete
 elegido en el package.json.
+
+## Corrección 
+
+Usamos la Api de heroku para conectarnos a la aplicación
+
+```javascript
+     const Heroku = require('heroku-client');
+            var tokenHeroku = readlineSync.question('Introduzca el token para conectarte: ');
+            try{
+              var heroku = new Heroku({ token: tokenHeroku });
+            }
+            catch(err){
+              console.error("Error al conectarte por token");
+            }
+```
 
 ## Opciones
 
