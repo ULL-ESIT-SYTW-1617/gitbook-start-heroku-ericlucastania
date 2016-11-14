@@ -4,14 +4,21 @@ module.exports = {
     
     initialize: () => {
         
+        var readlineSync = require('readline-sync');
+        const Heroku = require('heroku-client');
+        var tokenHeroku = readlineSync.question('Introduzca el token para conectarte: ');
+        try{
+          var heroku = new Heroku({ token: tokenHeroku });
+        }
+        catch(err){
+          console.error("Error al conectarte por token");
+        }
         var fs = require('fs-extra');
         require('shelljs/global');
         var path = require('path');
-        var readlineSync = require('readline-sync');
         
         var directorioUsuario = process.cwd() + '/';
         var exp =/\n\ngulp.task\(\'deploy\-heroku(.*\n)*\}\)\;\/\/finish deploy-heroku/gim;
-        
         
         var directorioPlugin = path.join(__dirname, 'template', 'gulpfile.js');
         var directorioPlugin2 = path.join(__dirname, 'template');
@@ -24,18 +31,6 @@ module.exports = {
           });
         }
         
-        function login () {
-          const spawn = require('child_process').spawn;
-          return new Promise(function (resolve, reject) {
-              spawn('heroku', ['login'], {stdio: 'inherit'})
-                .on('close', function (e) {
-                  if (e === 0) resolve();
-                  else reject(new Error('Authorization failed.'));
-                });
-          });
-          
-        }
-        
         function resolverNombre(){
           return new Promise(function (resolve, reject) {
              
@@ -46,12 +41,12 @@ module.exports = {
         }
         
         descarga().then(function(res){
-            login().then(function(res){
               resolverNombre().then(function(nombre){
-                exec("heroku create " + nombre);
-              });
+                heroku.post('/apps', {body: {name: nombre}}).then(app => {
+                  exec('git remote add heroku ' + 'https://git.heroku.com/' + nombre + '.git' );
+                });
             });
-        })
+        });
         
         
    

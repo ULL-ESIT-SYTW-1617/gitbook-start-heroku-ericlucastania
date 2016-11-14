@@ -1,6 +1,6 @@
 {
-  "name": "gitbook-start-plugin-heroku-ericlucastania",
-  "version": "1.0.33",
+  "name": "gitbook-start-plugin-heroku-elt",
+  "version": "1.0.74",
   "description": "Plugin que permite hacer un despliegue automático de un gitbook en heroku",
   "main": "script.js",
   "scripts": {
@@ -50,6 +50,7 @@
   "_resolved": "https://registry.npmjs.org/gitbook-start-plugin-heroku-ericlucastania/-/gitbook-start-plugin-heroku-ericlucastania-1.0.3.tgz",
   "dependencies": {
     "fs-extra": "^1.0.0",
+    "heroku-client": "^3.0.0-beta3",
     "path": "^0.12.7",
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
