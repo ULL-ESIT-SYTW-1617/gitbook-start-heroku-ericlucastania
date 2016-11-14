@@ -15,39 +15,35 @@ deploy solo hace un push al repositorio de heroku, este método es llamado cuand
 
 ## Pasos a ejecutar 
 
-ANTES DE EMPEZAR ASEGÚRATE DE TENER EL TOOLBET DE HEROKU INSTALADO
-
 **1. Instala nuestro paquete de forma global**
 
 ```npm install -g gitbook-start-elt```
 
-**2. Instala el plugin de forma global**
 
-```npm install -g gitbook-start-plugin-heroku-ericlucastania```
-
-**3. Ejecuta el binario para el render del template**
+**2. Ejecuta el binario para el render del template**
 
 ```gitbook-start --dir Carpeta``` !!Si no ejecutas el --dir se creará una carpeta con tu nombre de usuario
 
-**4. Entra en la carpeta**
+**3. Entra en la carpeta**
 
  ```cd Carpeta```
 
-**5. Ejecuta el plugin**
+
+
+
+## PLUGINS
+
+**1. Instala el plugin forma global**
+
+```npm install -g gitbook-start-plugin-heroku-ericlucastania```
+
+**2. Ejecuta el plugin que desees, asegurate de estar dentro de la carpeta**
+
 
 ```gitbook-start -d heroku``` !! También puedes usar la opción --deploy
- 
- Te pedirá que introduzcas el token,puedes usar un token ya existente o si dispones de heroku toolbet puedes usarlo 
- mediante el comando ```heroku auth:token```
- 
-
-**6. Ejecuta un npm install**
-
-```npm install```
 
 
-**7. Ejecuta el gulp creado**
-
+**3. Ejecuta el gulp creado**
 
 ```gulp deploy-heroku```
 
@@ -81,6 +77,8 @@ Usamos la Api de heroku para conectarnos a la aplicación
         -r repositorio github contra el que se va a trabajar -r nameRepo
         -v muestra la version del paquete gitbook-start -v
         -h muestra ayuda sobre las opciones disponibles
+        
+        
 ## Enlaces interesantes 
  
 * [NPM](https://www.npmjs.com/package/gitbook-start-elt)
