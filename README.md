@@ -37,7 +37,7 @@ deploy solo hace un push al repositorio de heroku, este método es llamado cuand
 
 ```npm install -g gitbook-start-plugin-heroku-ericlucastania```
 
-**2. Ejecuta el plugin que desees, asegurate de estar dentro de la carpeta**
+**2. Ejecuta el plugin que desees, asegúrate de estar dentro de la carpeta**
 
 
 ```gitbook-start -d heroku``` !! También puedes usar la opción --deploy
