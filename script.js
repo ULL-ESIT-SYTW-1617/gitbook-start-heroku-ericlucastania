@@ -68,13 +68,19 @@ module.exports = {
         fs.readdir(directorioPlugin2, (err, files) => {
           var auth = readlineSync.question('¿Quiere solicitar autentificación para que los usuarios puedan acceder a su libro?(s/n): ');
           if ((auth == 's') || (auth == 'S') || (auth == 'undefined')) {
+            console.log("en el primer if auth vale: " + auth);
             var posapp = files.indexOf("app.js");
             files.splice(posapp,1);
           }
-          if ((auth == 'n') || (auth == 'N')) {
+          else if ((auth == 'n') || (auth == 'N')) {
+            console.log("en el segundo if auth vale: " + auth);
             var posappAuth = files.indexOf("appAuth.js");
             files.splice(posappAuth,1);
           }
+          else {
+            console.log("Opción desconocida.");
+          }
+          console.log("FILES: " + files);
             var pos = files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
