@@ -42,6 +42,10 @@ deploy solo hace un push al repositorio de heroku, este método es llamado cuand
 
 ```gitbook-start -d heroku``` !! También puedes usar la opción --deploy
 
+* Te pedirá un token, puedes generarlo ejecutando ```heroku auth:token``` o bien usar uno ya generado.
+* Se te solicitará el nombre que tendrá tu aplicación en Heroku.
+* Te preguntará si deseas pedir autentificación para que sólo los usuarios de tu organización puedan leer el libro.
+
 
 **3. Ejecuta el gulp creado**
 
