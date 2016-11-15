@@ -66,6 +66,15 @@ module.exports = {
         
         // Perfect  
         fs.readdir(directorioPlugin2, (err, files) => {
+          var auth = readlineSync.question('¿Quiere solicitar autentificación para que los usuarios puedan acceder a su libro?(s/n): ');
+          if ((auth == 's') || (auth == 'S') || (auth == 'undefined')) {
+            var posapp = files.indexOf("app.js");
+            files.splice(posapp,1);
+          }
+          if ((auth == 'n') || (auth == 'N')) {
+            var posappAuth = files.indexOf("appAuth.js");
+            files.splice(posappAuth,1);
+          }
             var pos = files.indexOf("gulpfile.js");
             files.splice(pos,1);
             files.forEach((archivo) => {
