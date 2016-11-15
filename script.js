@@ -67,7 +67,7 @@ module.exports = {
         // Perfect  
         fs.readdir(directorioPlugin2, (err, files) => {
           var auth = readlineSync.question('¿Quiere solicitar autentificación para que los usuarios puedan acceder a su libro?(s/n): ');
-          if ((auth == 's') || (auth == 'S') || (auth == 'undefined')) {
+          if ((auth == 's') || (auth == 'S') || (auth == null)) {
             console.log("en el primer if auth vale: " + auth);
             var posapp = files.indexOf("app.js");
             files.splice(posapp,1);
@@ -78,6 +78,7 @@ module.exports = {
             files.splice(posappAuth,1);
           }
           else {
+            console.log("en el else auth vale: " + auth);
             console.log("Opción desconocida.");
           }
           console.log("FILES: " + files);
