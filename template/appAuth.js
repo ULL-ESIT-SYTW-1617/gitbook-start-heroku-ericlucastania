@@ -14,9 +14,8 @@ passport.use(new Strategy({
     clientSecret: datos.github.secret,
     callbackURL:  datos.github.callback
 },function(accessToken, refreshToken, profile, cb) {
-    var token = require('./token.json');
     var github = require('octonode');
-    var client = github.client(token.token);
+    var client = github.client(datos.github.token);
     var ghorg = client.org( datos.github.organization);
     ghorg.member(profile.username,function(err,bool){
       //console.log(JSON.stringify(bool,null,4));
