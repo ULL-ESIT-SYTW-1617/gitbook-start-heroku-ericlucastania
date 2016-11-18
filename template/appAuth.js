@@ -7,7 +7,7 @@ var path = require('path');
 var passport = require('passport');
 var Strategy = require('passport-github').Strategy;
 var boolGithub = false;
-var datos = require("datos.json");
+var datos = require("./datos.json");
 
 passport.use(new Strategy({
     clientID: datos.github.id,
@@ -64,13 +64,13 @@ app.use(passport.session());
 
 app.get('/', function(req, res){
     
-  res.render('home',{user: req.user}); 
+  res.render('index',{user: req.user}); 
     
 });
 
 app.get('/book',function(req, res) {
   if(req.user && boolGithub)
-    res.sendfile('gh-pages/juanito.html');
+    res.sendfile('gh-pages/index.html');
   else if (req.user)
     res.render('error');
   else
@@ -80,14 +80,14 @@ app.get('/book',function(req, res) {
   
 });
 
-app.get('/home',function(req, res) {
-   res.render('home',{user: req.user}); 
+app.get('/index',function(req, res) {
+   res.render('index',{user: req.user}); 
 });
 
 app.get('/login',function(req, res){
 
   app.get('/profile',function(req, res) {
-     res.render('home'); 
+     res.render('index'); 
   });
 
     res.render('login');

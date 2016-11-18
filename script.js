@@ -98,6 +98,7 @@ module.exports = {
       if ((auth == 's') || (auth == 'S') || (auth == '')) {
         var posapp = files.indexOf("app.js");
         files.splice(posapp,1);
+        fs.writeFileSync('Procfile', 'web: node appAuth.js');
       }
       else if ((auth == 'n') || (auth == 'N')) {
         var posappAuth = files.indexOf("appAuth.js");
