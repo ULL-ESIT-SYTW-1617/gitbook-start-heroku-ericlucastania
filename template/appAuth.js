@@ -7,16 +7,17 @@ var path = require('path');
 var passport = require('passport');
 var Strategy = require('passport-github').Strategy;
 var boolGithub = false;
+var datos = require("datos.json");
 
 passport.use(new Strategy({
-    clientID: '217bf6cd072238e4f2d1',
-    clientSecret: '3aac244b495a7fda4e113c46d8db90eeec137201',
-    callbackURL: 'https://casianitoelmasbonito-alu0100786330.c9users.io/login/github/return'
+    clientID: datos.github.id,
+    clientSecret: datos.github.secret,
+    callbackURL:  datos.github.callback
 },function(accessToken, refreshToken, profile, cb) {
     var token = require('./token.json');
     var github = require('octonode');
     var client = github.client(token.token);
-    var ghorg = client.org('ULL-ESIT-SYTW-1617');
+    var ghorg = client.org( datos.github.organization);
     ghorg.member(profile.username,function(err,bool){
       //console.log(JSON.stringify(bool,null,4));
       boolGithub = bool;

@@ -1,0 +1,8 @@
+{
+    "github":{
+        "id": "217bf6cd072238e4f2d1",
+        "secret": "3aac244b495a7fda4e113c46d8db90eeec137201",
+        "callback": "https://casianitoelmasbonito-alu0100786330.c9users.io/login/github/return',
+        "organization": "ULL-ESIT-SYTW-1617"
+    }
+}

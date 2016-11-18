@@ -54,5 +54,16 @@
     "path": "^0.12.7",
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
+    "async": "^1.4.0",
+    "body-parser": "^1.15.2",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-github": "^1.1.0",
+    "passport-local": "^1.0.0",
+    "node-dropbox-copia": "^0.0.1"
   }
 }
