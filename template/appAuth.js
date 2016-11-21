@@ -12,7 +12,7 @@ var datos = require("./datos.json");
 passport.use(new Strategy({
     clientID: datos.github.id,
     clientSecret: datos.github.secret,
-    callbackURL:  datos.github.callback
+    callbackURL:  datos.github.callback + '/login/github/return'
 },function(accessToken, refreshToken, profile, cb) {
     var github = require('octonode');
     var client = github.client(datos.github.token);
