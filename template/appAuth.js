@@ -9,6 +9,7 @@ var Strategy = require('passport-github').Strategy;
 var boolGithub = false;
 var datos = require("./datos.json");
 
+
 passport.use(new Strategy({
     clientID: datos.github.id,
     clientSecret: datos.github.secret,
