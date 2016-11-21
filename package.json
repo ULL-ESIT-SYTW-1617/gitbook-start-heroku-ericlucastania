@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-plugin-heroku-ericlucastania",
-  "version": "1.0.91",
+  "version": "1.0.92",
   "description": "Plugin que permite hacer un despliegue automático de un gitbook en heroku",
   "main": "script.js",
   "scripts": {
