@@ -78,9 +78,57 @@ Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que po
           'n' o 'N'
         
 
-**3. Ejecuta el gulp creado**
+**3. Generando aplicación**
+
+
+* Cambiar en el archivo datos.json los datos de las Oauth Aplications que aparece por los tuyos
+Crea una Outh Aplications en github
+
+
+![](https://1.bp.blogspot.com/-l3uBl8431vo/WDMCXGpKJZI/AAAAAAAAAA4/FlJIQMQNj9wF7eg0hdYh5i0P_UszFIVQACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A11.PNG)
+
+* En la parte superior aparece en boton registrar aplicación
+
+
+
+![](https://4.bp.blogspot.com/-e4-KkIrqeWQ/WDMCXWfAStI/AAAAAAAAAA0/NeUq3iL5Ap8ee8rrN8innO7MRqMEUROvgCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A38.PNg)
+
+* Te aparecerá lo siguiente
+
+
+
+![](https://1.bp.blogspot.com/-c9gMk1SAt0U/WDMCXgTEYUI/AAAAAAAAABA/RSnAEhPdYkkpqNHwuATB-AEnvLPt5EURgCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A50.PNG)
+
+* A continuación se muestra un ejemplo de que datos poner en la aplicación,en este caso está horientada a 
+utilizar heroku
+
+
+
+![](https://1.bp.blogspot.com/-gCNY7ygJ6ho/WDMCXkAN_II/AAAAAAAAAA8/J_qmtz5d9H8At_y_Zna235Vx8xDGluNSQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A16%253A12.PNg)
+
+* Una vez creada te aparecerán los datos correspondientes a la aplicación de desarrollo
+
+
+![](https://4.bp.blogspot.com/-a_3vEmXyy3k/WDMEMOrUvGI/AAAAAAAAABM/PMAMRcW7uC45uLsWiH6nFQ9hJLIpG9mHQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A26%253A38.PNG)
+
+* Ahora genera un token en Github
+
+
+
+![](https://3.bp.blogspot.com/-g2l7yvBSuAw/WDMFIk1h4OI/AAAAAAAAABU/bUmkmOWrfDwdfZG3quY41ovGrHhnyInkwCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A30%253A32.PNG)
+
+* Para acabar este paso sustituye esos datos en el archivo datos.json por los que vienen por defecto
+
+
+
+![](https://1.bp.blogspot.com/-RJNNaRjFT2M/WDMCXKkjZ6I/AAAAAAAAAAw/ApjKtMSo5UQrs3XnzC45DIwUdyFRVAckwCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A09%253A50.PNG)
+
+**4. Ejecuta el gulp creado**
 
 ```gulp deploy-heroku```
+
+
+
 
 #### Explicación
 
