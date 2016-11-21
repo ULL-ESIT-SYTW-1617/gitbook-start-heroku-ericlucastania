@@ -127,7 +127,11 @@ module.exports = {
   },
 
   deploy: () => {
-
+    var fs = require('fs-extra');
+    var directorioUsuario = process.cwd() + '/';
+    fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
+      if (err) throw err;
+    });
     require('shelljs/global');
     exec('git add .');
     exec('git commit -m "deploying heroku"');

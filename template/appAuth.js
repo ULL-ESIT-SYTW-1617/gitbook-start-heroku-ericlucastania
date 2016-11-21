@@ -64,13 +64,13 @@ app.use(passport.session());
 
 app.get('/', function(req, res){
     
-  res.render('index',{user: req.user}); 
+  res.render('home',{user: req.user}); 
     
 });
 
 app.get('/book',function(req, res) {
   if(req.user && boolGithub)
-    res.sendfile('gh-pages/index.html');
+    res.sendfile('gh-pages/juanito.html');
   else if (req.user)
     res.render('error');
   else
@@ -87,7 +87,7 @@ app.get('/index',function(req, res) {
 app.get('/login',function(req, res){
 
   app.get('/profile',function(req, res) {
-     res.render('index'); 
+     res.render('home'); 
   });
 
     res.render('login');
