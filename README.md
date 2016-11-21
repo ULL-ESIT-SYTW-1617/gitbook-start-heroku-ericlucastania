@@ -1,4 +1,4 @@
-#Práctica: Heroku [PLUGIN]
+# Práctica: Heroku [PLUGIN]
 
 
 ## Descripción
@@ -82,7 +82,7 @@ Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que po
 
 
 * Cambiar en el archivo datos.json los datos de las Oauth Aplications que aparece por los tuyos
-Crea una Outh Aplications en github
+Crea una Outh Aplications en [github](https://github.com/settings/developers)
 
 
 ![](https://1.bp.blogspot.com/-l3uBl8431vo/WDMCXGpKJZI/AAAAAAAAAA4/FlJIQMQNj9wF7eg0hdYh5i0P_UszFIVQACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A11.PNG)
@@ -111,7 +111,7 @@ utilizar heroku
 
 ![](https://4.bp.blogspot.com/-a_3vEmXyy3k/WDMEMOrUvGI/AAAAAAAAABM/PMAMRcW7uC45uLsWiH6nFQ9hJLIpG9mHQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A26%253A38.PNG)
 
-* Ahora genera un token en Github
+* Ahora genera un [token](https://github.com/settings/tokens) en Github
 
 
 
