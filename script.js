@@ -120,8 +120,13 @@ module.exports = {
           cp(directorioPlugin2 + '/' + archivo, directorioUsuario);
         }
       });
+<<<<<<< HEAD
       if ((auth == 's') || (auth == 'S') || (auth == ''))
         fs.writeFileSync(directorioUsuario + '/Procfile', 'web: node appAuth.js');
+=======
+       if ((auth == 's') || (auth == 'S') || (auth == ''))
+          fs.writeFileSync(directorioUsuario + '/Procfile', 'web: node appAuth.js');
+>>>>>>> 9c870482bce5bb92cb46e01a7ed211fc8722cbb1
     });
 
 
