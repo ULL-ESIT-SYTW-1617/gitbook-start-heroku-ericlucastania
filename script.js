@@ -37,6 +37,9 @@ module.exports = {
         var nombre = readlineSync.question('Introduzca el nombre de la aplicación: ');
         if (nombre !== null)
           resolve(nombre);
+        else{
+          reject(console.log("El nombre tiene que ser distinto de null"));
+        }
       });
     }
 
