@@ -165,12 +165,12 @@ app.get('/registro', function (req, res) {
 
 
 app.post('/cambiarpass', function (req, res) {
-
+  var pass = req.body.Password;
   var passnew = req.body.Passwordnew1;
   var passnew1 = req.body.Passwordnew2;
   var user = req.body.username;
-  var x;
-
+  var hash = bcrypt.hashSync(passnew);
+  var x, info;
 
   if (passnew == passnew1) {
     var funcion = function () {
@@ -180,20 +180,25 @@ app.post('/cambiarpass', function (req, res) {
         });
       });
     };
-    funcion().then(res => {
-      x[user].pass = passnew;
-      new Promise((res, rej) => {
-        var info = JSON.stringify(x, null, 4);
-        res(api.createFile('/datos.json', info, function (e, b, c) {
-          if (e) console.log(e);
-          else  res.redirect('/home');
-        }));
+    funcion().then(respu => {
+      x[user].pass = hash;
+      new Promise((resp, rej) => {
+        if (bcrypt.compareSync(pass, x[user].pass)) {
+          info = JSON.stringify(x, null, 4);
+          resp(api.createFile('/datos.json', info, function (e, b, c) {
+            if (e) console.log(e);
+            else
+              res.render('login');
+          }));
+        }
+        else {
+          res.render("cambiarpass");
+        }
       });
     });
   }
-  else 
-    res.render('registro');
-
+  else
+    res.redirect('cambiarpass');
 });
 
 app.get('/login', function (req, res) {
@@ -236,7 +241,7 @@ app.post('/guardar', function (req, res) {
     };
   }
   else {
-    res.render('registro');
+    res.render('/registro');
 
 
   }
