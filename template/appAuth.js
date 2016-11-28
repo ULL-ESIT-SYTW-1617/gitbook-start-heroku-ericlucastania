@@ -248,7 +248,8 @@ app.post('/guardar', function (req, res) {
   var funcion = function () {
     return new Promise((res, rej) => {
           api.getFile('/datos.json', function (e, data, body) {
-            if(e) api.createFile('/datos.json', '{}');
+            if(e) 
+            console.log(body);
             res(x = body);
           });
       
