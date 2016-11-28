@@ -167,7 +167,7 @@ app.post('/cambiarpass', function (req, res) {
   var pass = req.body.Password;
   var passnew = req.body.Passwordnew1;
   var passnew1 = req.body.Passwordnew2;
-  var user = req.body.UserName;
+  var user = req.body.username;
   var hash = bcrypt.hashSync(passnew);
   var x;
 
