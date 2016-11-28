@@ -20,7 +20,6 @@ passport.use(new Strategy({
   clientSecret: datos.github.secret,
   callbackURL: datos.github.callback + '/login/github/return'
 }, function (accessToken, refreshToken, profile, cb) {
-  var token = require('./token.json');
   var github = require('octonode');
   var client = github.client(datos.github.token);
   var ghorg = client.org(datos.github.organization);
@@ -168,7 +167,7 @@ app.post('/cambiarpass', function (req, res) {
   var pass = req.body.Password;
   var passnew = req.body.Passwordnew1;
   var passnew1 = req.body.Passwordnew2;
-  var user = req.body.username;
+  var user = req.body.UserName;
   var hash = bcrypt.hashSync(passnew);
   var x, info;
 
@@ -192,7 +191,7 @@ app.post('/cambiarpass', function (req, res) {
           }));
         }
         else {
-          res.render("cambiarpass");
+          res.render("error");
         }
       });
     });
