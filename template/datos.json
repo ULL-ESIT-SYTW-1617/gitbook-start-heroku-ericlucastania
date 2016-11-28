@@ -5,6 +5,10 @@
         "callback": "https://sytw-alu0100785265.c9users.io",
         "organization": "ULL-ESIT-SYTW-1617",
         "token": "899957c9d61be3b649f5d73d8318e985519bc10e"
+    },
+    
+    "dropbox":{
+            "token_dropbox": "899957c9d61be3b649f5d73d8318e985519bc10e"
     }
 }
 
