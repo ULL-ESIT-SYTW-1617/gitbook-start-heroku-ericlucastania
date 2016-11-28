@@ -25,7 +25,7 @@ passport.use(new Strategy({
   var client = github.client(datos.github.token);
   var ghorg = client.org(datos.github.organization);
   ghorg.member(profile.username, function (err, bool) {
-    
+
     boolGithub = bool;
     if (err) console.log(err);
   });
@@ -34,7 +34,7 @@ passport.use(new Strategy({
 
 function buscarNombre(usuario, password, cb) {
   var datos;
-  
+
   var funcion = function () {
     return new Promise((res, rej) => {
       api.getFile('/datos.json', function (e, data, body) {
@@ -45,10 +45,10 @@ function buscarNombre(usuario, password, cb) {
 
   funcion().then(res => {
     if (datos[usuario].username == usuario && bcrypt.compareSync(password, datos[usuario].pass)) {
-      
-      
+
+
       boolLocal = true;
-      console.log(boolLocal );
+      console.log(boolLocal);
       cb(null, datos[usuario]);
     }
     else {
@@ -161,69 +161,38 @@ app.get('/registro', function (req, res) {
 
 
 
-  
+
 
 
 app.post('/cambiarpass', function (req, res) {
-  
+
   var passnew = req.body.Passwordnew1;
   var passnew1 = req.body.Passwordnew2;
   var user = req.body.username;
-  var pass = req.body.Password;
-  var info;
-  
-  
-  if (passnew == passnew1) {
-      
-    var obj = {
-      [req.body.username]: {
-        "username": user,
-        "pass": bcrypt.hashSync(passnew)
-      }
-    };
-  }
-  else {
-    res.render('registro');
-
-
-  }
   var x;
-  var funcion = function () {
-    return new Promise((res, rej) => {
-      api.getFile('/datos.json', function (e, data, body) {
-        
-        res(x = body);
+
+
+  if (passnew == passnew1) {
+    var funcion = function () {
+      return new Promise((res, rej) => {
+        api.getFile('/datos.json', function (e, data, body) {
+          res(x = body);
+        });
+      });
+    };
+    funcion().then(res => {
+      x[user].pass = passnew;
+      new Promise((res, rej) => {
+        var info = JSON.stringify(x, null, 4);
+        res(api.createFile('/datos.json', info, function (e, b, c) {
+          if (e) console.log(e);
+          else  res.redirect('/home');
+        }));
       });
     });
-  };
-  
-  
-
-  funcion().then(res => {
-    
-    if(bcrypt.compareSync(pass, x[user].pass)){
-      var viejo_user = x[user].username;
-    x[req.body.username] = obj[req.body.username];
-    
-    new Promise((res, rej) => {
-      if(viejo_user == user  )
-      {
-        info= JSON.stringify(x,null,4);
-      res(api.createFile('/datos.json', info, function (e, b, c) {
-        if (e) console.log(e);
-      
-      }));
-      }
-      
-    });
-}
-  });
-
-  
-  res.redirect('/');
-
-  
-
+  }
+  else 
+    res.render('registro');
 
 });
 
@@ -279,12 +248,12 @@ app.post('/guardar', function (req, res) {
       });
     });
   };
-  
-  
+
+
 
   funcion().then(res => {
     x[req.body.UserName] = obj[req.body.UserName];
-    
+
     new Promise((res, rej) => {
       res(api.createFile('/datos.json', x, function (e, b, c) {
         if (e) console.log(e);
@@ -293,7 +262,7 @@ app.post('/guardar', function (req, res) {
 
   });
 
-  
+
   res.redirect('/');
 });
 
