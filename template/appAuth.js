@@ -167,9 +167,9 @@ app.post('/cambiarpass', function (req, res) {
   var pass = req.body.Password;
   var passnew = req.body.Passwordnew1;
   var passnew1 = req.body.Passwordnew2;
-  var user = req.body.UserName;
+  var user = req.body.username;
   var hash = bcrypt.hashSync(passnew);
-  var x, info;
+  var x;
 
   if (passnew == passnew1) {
     var funcion = function () {
@@ -180,11 +180,10 @@ app.post('/cambiarpass', function (req, res) {
       });
     };
     funcion().then(respu => {
-      x[user].pass = hash;
       new Promise((resp, rej) => {
         if (bcrypt.compareSync(pass, x[user].pass)) {
-          info = JSON.stringify(x, null, 4);
-          resp(api.createFile('/datos.json', info, function (e, b, c) {
+          x[user].pass = hash;
+          resp(api.createFile('/datos.json', x, function (e, b, c) {
             if (e) console.log(e);
             else
               res.render('login');
@@ -247,10 +246,18 @@ app.post('/guardar', function (req, res) {
   var x;
   var funcion = function () {
     return new Promise((res, rej) => {
-      api.getFile('/datos.json', function (e, data, body) {
-        res(x = body);
-      });
+          api.getFile('/datos.json', function (e, data, body) {
+            if(e) console.log(e);
+            if(body.error != null)
+              x = {};
+            else
+              x = body;
+              
+            res(x);
+          });
+      
     });
+
   };
 
 
