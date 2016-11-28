@@ -81,47 +81,26 @@ Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que po
 **3. Generando aplicación**
 
 
-* Cambiar en el archivo datos.json los datos de las Oauth Aplications que aparece por los tuyos
-Crea una Outh Aplications en [github](https://github.com/settings/developers)
+
+* Cambiar en el archivo datos_dropbox.json los datos creándote una nueva app en Dropbox
+en el siguiente enlace [Enlace a Create App](https://www.dropbox.com/developers/apps)
+ 
+
+* A continuación aparecen tres pasos para crear la app,cuando los hayas hecho dale a el botón crear app y listo
+ 
 
 
-![](https://1.bp.blogspot.com/-l3uBl8431vo/WDMCXGpKJZI/AAAAAAAAAA4/FlJIQMQNj9wF7eg0hdYh5i0P_UszFIVQACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A11.PNG)
+![Crear App](https://4.bp.blogspot.com/-UlTBnQwXI3I/WDwCwWyU-iI/AAAAAAAAAps/JBVDykAvYCocOYNkUrWsHjhHrX3zUyYwQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-28%2B10%253A03%253A25.PNG)
 
-* En la parte superior aparece en boton registrar aplicación
-
-
-
-![](https://4.bp.blogspot.com/-e4-KkIrqeWQ/WDMCXWfAStI/AAAAAAAAAA0/NeUq3iL5Ap8ee8rrN8innO7MRqMEUROvgCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A38.PNg)
-
-* Te aparecerá lo siguiente
-
-
-
-![](https://1.bp.blogspot.com/-c9gMk1SAt0U/WDMCXgTEYUI/AAAAAAAAABA/RSnAEhPdYkkpqNHwuATB-AEnvLPt5EURgCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A13%253A50.PNG)
-
-* A continuación se muestra un ejemplo de que datos poner en la aplicación,en este caso está horientada a 
-utilizar heroku
+* Una vez creada la aplicación vete a donde pone Generate token y clica sobre él,el token que se 
+ te genera lo copias y lo pegas en el archivo "datos_dropbox" sustituyendo el token que está por el que acabas 
+ de copiar
 
 
 
-![](https://1.bp.blogspot.com/-gCNY7ygJ6ho/WDMCXkAN_II/AAAAAAAAAA8/J_qmtz5d9H8At_y_Zna235Vx8xDGluNSQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A16%253A12.PNg)
-
-* Una vez creada te aparecerán los datos correspondientes a la aplicación de desarrollo
+![](https://4.bp.blogspot.com/-Jmedi4mBqeg/WDwCwayVYaI/AAAAAAAAApw/IcE3fuJDUgkdPDMi2P_D2nef5EuKc00_ACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-28%2B10%253A07%253A09.PNG)
 
 
-![](https://4.bp.blogspot.com/-a_3vEmXyy3k/WDMEMOrUvGI/AAAAAAAAABM/PMAMRcW7uC45uLsWiH6nFQ9hJLIpG9mHQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A26%253A38.PNG)
-
-* Ahora genera un [token](https://github.com/settings/tokens) en Github
-
-
-
-![](https://3.bp.blogspot.com/-g2l7yvBSuAw/WDMFIk1h4OI/AAAAAAAAABU/bUmkmOWrfDwdfZG3quY41ovGrHhnyInkwCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A30%253A32.PNG)
-
-* Para acabar este paso sustituye esos datos en el archivo datos.json por los que vienen por defecto
-
-
-
-![](https://1.bp.blogspot.com/-RJNNaRjFT2M/WDMCXKkjZ6I/AAAAAAAAAAw/ApjKtMSo5UQrs3XnzC45DIwUdyFRVAckwCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-21%2B14%253A09%253A50.PNG)
 
 **4. Ejecuta el gulp creado**
 
