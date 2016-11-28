@@ -247,10 +247,13 @@ app.post('/guardar', function (req, res) {
   var x;
   var funcion = function () {
     return new Promise((res, rej) => {
-      api.getFile('/datos.json', function (e, data, body) {
-        res(x = body);
-      });
+          api.getFile('/datos.json', function (e, data, body) {
+            if(e) api.createFile('/datos.json', '{}');
+            res(x = body);
+          });
+      
     });
+
   };
 
 
