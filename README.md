@@ -78,34 +78,18 @@ Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que po
           'n' o 'N'
         
 
-**3. Generando aplicación**
+**3. Generando token**
 
 
 
-* Cambiar en el archivo datos_dropbox.json los datos creándote una nueva app en Dropbox
-en el siguiente enlace [Enlace a Create App](https://www.dropbox.com/developers/apps)
+* Cambiar en el archivo datos_dropbox.json los datos creándote un nuevo token en Dropbox
+en el siguiente enlace [Enlace a Create Token](https://dropbox.github.io/dropbox-api-v2-explorer/#auth_token/revoke)
  
-
-* A continuación aparecen tres pasos para crear la app,cuando los hayas hecho dale a el botón crear app y listo
  
-
-
-![Crear App](https://4.bp.blogspot.com/-UlTBnQwXI3I/WDwCwWyU-iI/AAAAAAAAAps/JBVDykAvYCocOYNkUrWsHjhHrX3zUyYwQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-28%2B10%253A03%253A25.PNG)
-
-* Una vez creada la aplicación vete a donde pone Generate token y clica sobre él,el token que se 
- te genera lo copias y lo pegas en el archivo "datos_dropbox" sustituyendo el token que está por el que acabas 
- de copiar
-
-
-
-![](https://4.bp.blogspot.com/-Jmedi4mBqeg/WDwCwayVYaI/AAAAAAAAApw/IcE3fuJDUgkdPDMi2P_D2nef5EuKc00_ACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-11-28%2B10%253A07%253A09.PNG)
-
-
 
 **4. Ejecuta el gulp creado**
 
 ```gulp deploy-heroku```
-
 
 
 
@@ -115,20 +99,6 @@ Cuando se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del pl
 el initialize crea una tarea en el gulp para realizar el deploy. Además de guardarte el paquete
 elegido en el package.json.
 
-## Corrección 
-
-Usamos la Api de heroku para conectarnos a la aplicación
-
-```javascript
-     const Heroku = require('heroku-client');
-            var tokenHeroku = readlineSync.question('Introduzca el token para conectarte: ');
-            try{
-              var heroku = new Heroku({ token: tokenHeroku });
-            }
-            catch(err){
-              console.error("Error al conectarte por token");
-            }
-```
 
 ## Opciones
 
