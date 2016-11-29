@@ -83,7 +83,7 @@ Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que po
 
 
 * Cambiar en el archivo datos_dropbox.json los datos creándote un nuevo token en Dropbox
-en el siguiente enlace [Enlace a Create Token](https://dropbox.github.io/dropbox-api-v2-explorer/#auth_token/revoke)
+en el siguiente [Enlace](https://dropbox.github.io/dropbox-api-v2-explorer/#auth_token/revoke)
  
  
 
